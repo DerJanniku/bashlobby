@@ -9,8 +9,39 @@ public class ClanCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("clan")) {
-            sender.sendMessage(ChatColor.GREEN + "Clan management command executed.");
-            // Add clan management logic here
+            if (args.length < 1) {
+                sender.sendMessage(ChatColor.RED + "Usage: /clan <create|disband|list> [clanName]");
+                return true;
+            }
+
+            String subCommand = args[0].toLowerCase();
+            switch (subCommand) {
+                case "create":
+                    if (args.length < 2) {
+                        sender.sendMessage(ChatColor.RED + "Usage: /clan create <clanName>");
+                        return true;
+                    }
+                    String clanNameToCreate = args[1];
+                    // Create clan logic here
+                    sender.sendMessage(ChatColor.GREEN + "Created clan " + clanNameToCreate + ".");
+                    break;
+                case "disband":
+                    if (args.length < 2) {
+                        sender.sendMessage(ChatColor.RED + "Usage: /clan disband <clanName>");
+                        return true;
+                    }
+                    String clanNameToDisband = args[1];
+                    // Disband clan logic here
+                    sender.sendMessage(ChatColor.GREEN + "Disbanded clan " + clanNameToDisband + ".");
+                    break;
+                case "list":
+                    // List clans logic here
+                    sender.sendMessage(ChatColor.GREEN + "Listing clans...");
+                    break;
+                default:
+                    sender.sendMessage(ChatColor.RED + "Unknown subcommand. Usage: /clan <create|disband|list> [clanName]");
+                    break;
+            }
             return true;
         }
         return false;

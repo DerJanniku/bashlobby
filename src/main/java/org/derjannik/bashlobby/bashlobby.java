@@ -37,6 +37,12 @@ public class bashlobby extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new CosmeticsMenu(this), this);
         Bukkit.getPluginManager().registerEvents(this, this);
 
+        // Initialize TabListManager
+        TabListManager tabListManager = new TabListManager(this);
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            tabListManager.updateTabList(player);
+        }
+
         lobbyScoreboard = new LobbyScoreboard(this);
     }
 
