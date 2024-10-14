@@ -4,9 +4,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.ChatColor;
+import org.derjannik.bashlobby.utils.CoinManager;
 import org.jetbrains.annotations.NotNull;
 
 public class FriendCommand implements CommandExecutor {
+    private final CoinManager coinManager;
+
+    public FriendCommand(CoinManager coinManager) {
+        this.coinManager = coinManager;
+    }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (command.getName().equalsIgnoreCase("friend")) {
