@@ -12,11 +12,12 @@ import org.derjannik.bashlobby.gui.MainMenu;
 import org.derjannik.bashlobby.gui.FriendsMenu;
 import org.derjannik.bashlobby.gui.CosmeticsMenu;
 import org.derjannik.bashlobby.utils.LobbyScoreboard;
-import org.derjannik.bashlobby.commands.ClanCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.EventHandler;
+
+import java.util.Objects;
 
 public class bashlobby extends JavaPlugin implements Listener {
     private LobbyScoreboard lobbyScoreboard;
@@ -24,13 +25,13 @@ public class bashlobby extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getLogger().info("Plugin aktiviert!");
-        this.getCommand("lobby").setExecutor(new LobbyHelpCommand());
-        this.getCommand("lobby spawn").setExecutor(new LobbySpawnCommand());
-        this.getCommand("lobby minigames").setExecutor(new LobbyMinigamesCommand());
-        this.getCommand("report").setExecutor(new ReportCommand());
-        this.getCommand("friend").setExecutor(new FriendCommand());
-        this.getCommand("party").setExecutor(new PartyCommand());
-        this.getCommand("clan").setExecutor(new ClanCommand());
+        Objects.requireNonNull(this.getCommand("lobby")).setExecutor(new LobbyHelpCommand());
+        Objects.requireNonNull(this.getCommand("lobby spawn")).setExecutor(new LobbySpawnCommand());
+        Objects.requireNonNull(this.getCommand("lobby minigames")).setExecutor(new LobbyMinigamesCommand());
+        Objects.requireNonNull(this.getCommand("report")).setExecutor(new ReportCommand());
+        Objects.requireNonNull(this.getCommand("friend")).setExecutor(new FriendCommand());
+        Objects.requireNonNull(this.getCommand("party")).setExecutor(new PartyCommand());
+        Objects.requireNonNull(this.getCommand("clan")).setExecutor(new ClanCommand());
         Bukkit.getPluginManager().registerEvents(new MainMenu(this), this);
         Bukkit.getPluginManager().registerEvents(new FriendsMenu(this), this);
         Bukkit.getPluginManager().registerEvents(new CosmeticsMenu(this), this);
