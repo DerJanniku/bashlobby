@@ -1,5 +1,6 @@
 package org.derjannik.bashlobby;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.derjannik.bashlobby.commands.LobbyHelpCommand;
 import org.derjannik.bashlobby.commands.LobbySpawnCommand;
@@ -16,6 +17,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.EventHandler;
+import org.derjannik.bashlobby.utils.TabListManager;
 
 import java.util.Objects;
 
