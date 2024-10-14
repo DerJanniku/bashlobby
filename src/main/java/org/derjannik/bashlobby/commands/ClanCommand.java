@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ClanCommand implements CommandExecutor {
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, Command command, @NotNull String label, String[] args) {
         if (command.getName().equalsIgnoreCase("clan")) {
             if (args.length < 1) {
                 sender.sendMessage(ChatColor.RED + "Usage: /clan <create|disband|list> [clanName]");
