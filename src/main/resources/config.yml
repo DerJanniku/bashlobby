@@ -1,0 +1,7 @@
+friends:
+  max-friends: 100
+  data: {}
+
+clans:
+  max-members: 10
+  data: {}
